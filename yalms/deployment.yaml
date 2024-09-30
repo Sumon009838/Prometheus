@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prom-demo-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prom-demo
+  template:
+    metadata:
+      labels:
+        app: prom-demo
+    spec:
+      containers:
+        - name: prom-demo-container
+          image: sumon124816/k8:0.0.4
+          ports:
+            - containerPort: 9000

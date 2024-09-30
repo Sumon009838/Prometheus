@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prom-demo-exporter
+  labels:
+    app: prom-demo-monitor
+spec:
+  selector:
+    name: prom-demo
+  ports:
+    - port: 3200
+      targetPort: 9000
+      name: web
+      protocol: TCP
+
